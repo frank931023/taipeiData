@@ -8,6 +8,10 @@ app = Flask(__name__)
 def start_crawler():
     subprocess.Popen(['python', 'crawler.py'])
 
+@app.route('/')
+def home():
+    return 'Hello, World!'
+
 @app.route('/fetch', methods=['GET'])
 def fetch_route():
     try:
