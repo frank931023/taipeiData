@@ -6,9 +6,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
+
+# 设置 Chrome 无头模式
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # 启用无头模式
+chrome_options.add_argument("--disable-gpu")  # 禁用 GPU 加速（可选）
+chrome_options.add_argument("--no-sandbox")  # 禁用沙盒（可选）
+chrome_options.add_argument("--disable-dev-shm-usage")  # 禁用 /dev/shm 使用（可选）
 
 # Open a new Chrome browser
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=chrome_options)
 driver.get("https://dawn.tw/119/")
 
 # Fetch data function
